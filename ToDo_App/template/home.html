@@ -38,12 +38,15 @@
 
         <div class="col-sm-6">
             <div>
-                <p style="font-size:20px;text-shadow:2px 2px 2px lightgrey;">Task to be completed</p>
+                <a href="{% url 'ToDoAPP:classhome' %}">
+                    <legend style="font-size:20px;text-shadow:2px 2px 2px lightgrey;color:black">Task to be completed</legend>
+                </a>
             </div>
+
             {% for i in task_key %}
             <div class="card">
                 <div class="card-body p-3 shadow">
-                    <legend style="padding:5px"><b>{{ i.task }}</b></legend>
+                    <a href="{% url 'ToDoAPP:classdetailview' i.id %}" ><legend style="color:black;padding:5px"><b>{{ i.task }}</b></legend></a>
                     <p class="fw-lighter">
                         <small>Priority :</small> {{ i.priority }}</p>
                     <p class="fw-lighter">{{ i.date }}</p>

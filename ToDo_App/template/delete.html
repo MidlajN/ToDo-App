@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div align="center">
+    <div class="col-md-6" align="center">
+        <div class="shadow rounded" style="padding:20px">
+        <form method="post">
+            {% csrf_token %}
+            <legend style="text-align:center">Are You Sure <br>The Task Is Completed ?</legend>
+            <button class="btn btn-warning" type="submit">Confirm</button>
+        </form></div>
+    </div></div>
+</div>
+
+{% endblock %}
