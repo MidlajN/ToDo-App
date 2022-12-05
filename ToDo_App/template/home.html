@@ -6,8 +6,8 @@
 
     <div class="row">
 
-        <div class="col-md-6">
-            <form class="p-3 shadow rounded" method="post" enctype="multipart/form-data">
+        <div class="col-sm-6">
+            <form class="p-3 shadow-lg rounded" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div>
                     <label class="col-form-label" >Task</label>
@@ -24,23 +24,33 @@
                     </div>
                 </div>
 
+                <div style="margin-top:20px">
+                        <input type="date" class="form-control shadow-sm" name="date" required="required">
+                    </div>
+
                 <div style="padding:10px;margin-top:10px;">
                     <div align="right">
-                        <button class="btn btn-outline-success" style="width:150px;" type="submit">Submit</button>
+                        <button class="btn btn-outline-success" style="width:100px;" type="submit">Submit</button>
                     </div>
                 </div>
             </form>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-sm-6">
+            <div>
+                <p style="font-size:20px;text-shadow:2px 2px 2px lightgrey;">Task to be completed</p>
+            </div>
             {% for i in task_key %}
             <div class="card">
-                <div class="card-body p-3 shadow-sm">
-                    <legend>{{ i.task1 }}</legend>
-                    <p class="fw-lighter" style="margin-left:5px">
+                <div class="card-body p-3 shadow">
+                    <legend style="padding:5px"><b>{{ i.task }}</b></legend>
+                    <p class="fw-lighter">
                         <small>Priority :</small> {{ i.priority }}</p>
+                    <p class="fw-lighter">{{ i.date }}</p>
                     <a href="{% url 'ToDoAPP:delete' i.id %}">
-                        <button class="btn btn-outline-danger shadow" >Done</button>
+                        <button class="btn btn-outline-danger shadow">Done</button></a>
+                    <a href="{% url 'ToDoAPP:update' i.id %}">
+                        <button class="btn btn-success shadow" style="color:white;">Update</button>
                     </a>
                 </div>
             </div>

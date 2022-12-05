@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+  <div style="padding:10px">
+    <legend style="text-shadow:2px 2px 2px lightgrey;">Update Task</legend>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-warning shadow"  type="submit">Update</button>
+      <button class="btn btn-outline-success shadow" onclick="/">Cancel</button>
+    </form></div>
+</div>
+{% endblock %}
